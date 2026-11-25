@@ -1,0 +1,322 @@
+
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const focusAreas = [
+  {
+    number: '01',
+    title: 'Software Development',
+    description:
+      'Building software, exploring programming languages and contributing to open-source projects.',
+    tags: ['Development', 'Open Source', 'Engineering']
+  },
+  {
+    number: '02',
+    title: 'Cybersecurity',
+    description:
+      'Exploring security concepts, analyzing systems and documenting practical research.',
+    tags: ['Security Research', 'Penetration testing', 'Defensive Security']
+  },
+  {
+    number: '03',
+    title: 'Infrastructure & Homelab',
+    description:
+      'Designing and maintaining self-hosted infrastructure, networks and services.',
+    tags: ['Linux', 'Networking', 'pfSense']
+  },
+  {
+    number: '04',
+    title: 'Automation and AI',
+    description:
+      'Creating tools and scripts that simplify workflows and solve practical problems.',
+    tags: ['Scripting', 'Automation', 'AI Tooling']
+  }
+];
+
+const projects = [
+  {
+    number: '01',
+    category: 'SYSTEM ENGINEERING',
+    name: 'nixosFlake',
+    image: '/images/projects/nixos-architecture.png',
+    imageAlt: 'NixOS flake architecture with ThinkPad, PC and AI system configurations',
+    imageFit: 'contain',
+    description:
+      'A modular, declarative NixOS configuration built to manage multiple machines from a single, reproducible codebase. Three distinct system profiles share reusable modules while keeping hardware-specific settings, desktop configuration and server workloads properly separated.',
+    details:
+      'Security is a first-class part of the configuration, with YubiKey integration, GPG-based SSH authentication, signed Git commits and smart-card support. Home Manager handles user-level configuration, while separate stable and unstable Nixpkgs channels provide flexibility without sacrificing consistency.',
+    tags: ['NixOS', 'Nix Flakes', 'Home Manager', 'YubiKey', 'GPG'],
+    url: 'https://github.com/QuantumKoga/nixosFlake'
+  },
+  {
+    number: '02',
+    category: 'DESKTOP ENVIRONMENT',
+    name: 'dotfiles',
+    image: '/images/projects/dotfiles-desktop.png',
+    imageAlt: 'Custom Linux desktop environment built with Hyprland and Quickshell',
+    imageFit: 'cover',
+    description:
+      'A complete, personally tailored Linux desktop environment designed around productivity, consistency and a cohesive user experience. The configuration brings together Hyprland, Quickshell and a collection of interconnected desktop applications.',
+    details:
+      'Quickshell provides the custom graphical layer, while dedicated configurations for applications such as Alacritty, CAVA and Matugen help create a unified environment. The repository keeps the desktop setup reproducible and easy to maintain through version-controlled configuration files.',
+    tags: ['Hyprland', 'Quickshell', 'QML', 'Linux', 'Dotfiles'],
+    url: 'https://github.com/QuantumKoga/dotfiles'
+  },
+  {
+    number: '03',
+    category: 'INFRASTRUCTURE & SECURITY',
+    name: 'HADES',
+    image: '/images/projects/hades-network.png',
+    imageAlt: 'HADES homelab network topology',
+    imageFit: 'contain',
+    description:
+      'A self-hosted homelab built around network segmentation, controlled access and infrastructure transparency. HADES documents the architecture, services and security policies of an environment designed to keep user devices, servers, IoT and administrative access separated.',
+    details:
+      'The infrastructure uses a dedicated pfSense firewall for routing, VLANs and WireGuard VPN access, with Proxmox workloads treated as independently controlled network entities. The documentation also covers monitoring, logging, threat detection and planned infrastructure components, while deliberately excluding operational secrets.',
+    tags: ['pfSense', 'Proxmox', 'WireGuard', 'VLAN', 'Homelab'],
+    url: 'https://github.com/QuantumKoga/hades'
+  },
+  {
+    number: '04',
+    category: 'AI & EXPERIMENTATION',
+    name: 'pokemon_ai',
+    image: '/images/projects/pokemon-ai-architecture.png',
+    imageAlt: 'pokemon_ai architecture showing structured knowledge, data generation, FastAPI and Open WebUI',
+    imageFit: 'contain',
+    description:
+      'An experimental knowledge platform exploring how local AI models can make better competitive team-building decisions in Pokémon Champions. Instead of relying on general model knowledge, the project provides structured, game-specific information through generated JSON databases and a read-only REST API.',
+    details:
+      'The platform collects and organizes Pokémon data, moves, abilities, items, regulations and competitive metagame statistics. A FastAPI service exposes this knowledge to AI tooling, with Open WebUI integration serving as an interface for experimentation. The long-term direction is a data-grounded assistant capable of analyzing teams and explaining its recommendations.',
+    tags: ['Python', 'FastAPI', 'JSON', 'Local AI', 'Open WebUI'],
+    url: 'https://github.com/QuantumKoga/pokemon_ai'
+  }
+];
+
+---
+
+<BaseLayout>
+  <!-- Hero -->
+  <section class="mx-auto max-w-6xl px-6 pb-28 pt-24 sm:pt-32">
+    <div class="max-w-3xl">
+      <div class="mb-8 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-emerald-300">
+        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+        Software Development / Cybersecurity
+      </div>
+
+      <h1 class="text-5xl font-semibold leading-[1.08] tracking-tight sm:text-7xl">
+        Building secure things.
+        <span class="block text-[#829189]">
+          Understanding how they work.
+        </span>
+      </h1>
+
+      <p class="mt-8 max-w-2xl text-lg leading-8 text-[#a4b0a8]">
+        I'm Norbert Janik — a developer interested in software engineering,
+        cybersecurity, open source and infrastructure.
+        This is where I document what I build, learn and explore.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a
+          href="#projects"
+          class="rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#08100c] transition hover:bg-emerald-300"
+        >
+          Explore my work
+        </a>
+
+        <a
+          href="https://github.com/QuantumKoga"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="rounded-lg border border-white/15 px-6 py-3 text-sm font-medium text-white transition hover:border-emerald-400/50 hover:text-emerald-300"
+        >
+          GitHub profile ↗
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Focus areas -->
+  <section id="focus" class="border-y border-white/10 bg-white/[0.02]">
+    <div class="mx-auto max-w-6xl px-6 py-24">
+      <div class="mb-12">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+          What I work on
+        </p>
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          Areas of focus
+        </h2>
+      </div>
+
+      <div class="grid gap-5 sm:grid-cols-2">
+        {focusAreas.map((area) => (
+          <article class="rounded-xl border border-white/10 bg-[#101613] p-7 transition hover:border-emerald-400/30">
+            <p class="text-sm font-mono text-emerald-300">{area.number}</p>
+
+            <h3 class="mt-5 text-xl font-semibold">{area.title}</h3>
+
+            <p class="mt-3 min-h-14 leading-7 text-[#a4b0a8]">
+              {area.description}
+            </p>
+
+            <div class="mt-6 flex flex-wrap gap-2">
+              {area.tags.map((tag) => (
+                <span class="rounded-md bg-white/[0.06] px-3 py-1.5 text-xs text-[#b8c4bc]">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Projects -->
+  <section id="projects" class="mx-auto max-w-6xl px-6 py-24">
+    <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+      Selected work
+    </p>
+
+    <div class="mt-3 flex flex-col justify-between gap-5 sm:flex-row sm:items-end">
+      <div>
+        <h2 class="text-3xl font-semibold tracking-tight sm:text-4xl">
+          Projects & experiments
+        </h2>
+        <p class="mt-4 max-w-xl leading-7 text-[#a4b0a8]">
+          A selection of systems, tools and experiments built around
+          software engineering, infrastructure and security.
+        </p>
+      </div>
+
+      <a
+        href="https://github.com/QuantumKoga?tab=repositories"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-sm font-medium text-emerald-300 transition hover:text-emerald-200"
+      >
+        Browse all repositories ↗
+      </a>
+    </div>
+
+    <div class="mt-12 grid gap-5 lg:grid-cols-2">
+      {projects.map((project) => (
+        <article
+          class="group flex flex-col rounded-xl border border-white/10 bg-[#101613] p-7 transition duration-300 hover:-translate-y-1 hover:border-emerald-400/30 hover:bg-[#121b16]"
+        >
+          <div class="flex items-center justify-between gap-4">
+            <span class="font-mono text-sm text-emerald-300">
+              {project.number}
+            </span>
+
+            <span class="text-right text-[10px] font-medium tracking-[0.16em] text-[#849189]">
+              {project.category}
+            </span>
+          </div>
+
+          <img
+            src={project.image}
+            alt={project.imageAlt}
+            loading="lazy"
+            decoding="async"
+            class:list={[
+              'mt-7 aspect-video w-full rounded-lg border border-white/10',
+              project.imageFit === 'cover'
+                ? 'object-cover'
+                : 'bg-[#0b0f0e] object-contain p-2'
+            ]}
+          />
+
+          <h3 class="mt-7 text-2xl font-semibold tracking-tight text-white">
+            {project.name}
+          </h3>
+
+          <p class="mt-5 leading-7 text-[#c1ccc5]">
+            {project.description}
+          </p>
+
+          <p class="mt-4 leading-7 text-sm text-[#849189]">
+            {project.details}
+          </p>
+
+          <div class="mt-7 flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span
+                class="rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-[#b8c4bc]"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <div class="mt-auto pt-8">
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-sm font-medium text-emerald-300 transition group-hover:text-emerald-200"
+            >
+              Explore repository
+              <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+
+  <!-- About -->
+  <section id="about" class="border-y border-white/10 bg-white/[0.02]">
+    <div class="mx-auto max-w-6xl px-6 py-24">
+      <div class="max-w-3xl">
+        <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+          A little about me
+        </p>
+
+        <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+          Curiosity-driven engineering.
+        </h2>
+
+        <p class="mt-6 leading-8 text-[#a4b0a8]">
+          I enjoy understanding how technology works — from the software
+          we build to the infrastructure it runs on and the security
+          properties that protect it.
+        </p>
+
+        <p class="mt-4 leading-8 text-[#a4b0a8]">
+          This portfolio is a living record of my projects, experiments,
+          technical notes and ongoing learning.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="mx-auto max-w-6xl px-6 py-24">
+    <div class="rounded-2xl border border-emerald-400/20 bg-emerald-400/[0.04] p-8 sm:p-12">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+        Get in touch
+      </p>
+
+      <h2 class="mt-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Let's connect.
+      </h2>
+
+      <p class="mt-4 max-w-xl leading-7 text-[#a4b0a8]">
+        Interested in my work or have an interesting project in mind?
+        Feel free to reach out through GitHub.
+      </p>
+
+      <a
+        href="https://github.com/QuantumKoga"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-8 inline-flex rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#08100c] transition hover:bg-emerald-300"
+      >
+        Find me on GitHub ↗
+      </a>
+    </div>
+  </section>
+</BaseLayout>

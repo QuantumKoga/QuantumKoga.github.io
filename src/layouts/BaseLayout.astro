@@ -1,0 +1,34 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'QuantumKoga — Software Development & Cybersecurity',
+  description = 'Personal portfolio focused on software development, cybersecurity, open source and infrastructure.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0b0f0e" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-[#0b0f0e] text-[#e7eee9] antialiased">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

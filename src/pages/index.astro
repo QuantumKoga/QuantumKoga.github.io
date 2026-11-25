@@ -1,21 +1,20 @@
-
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const focusAreas = [
   {
     number: '01',
-    title: 'Software Development',
-    description:
-      'Building software, exploring programming languages and contributing to open-source projects.',
-    tags: ['Development', 'Open Source', 'Engineering']
-  },
-  {
-    number: '02',
     title: 'Cybersecurity',
     description:
       'Exploring security concepts, analyzing systems and documenting practical research.',
     tags: ['Security Research', 'Penetration testing', 'Defensive Security']
+  },
+  {
+    number: '02',
+    title: 'Software Development',
+    description:
+      'Building software, exploring programming languages and contributing to open-source projects.',
+    tags: ['Development', 'Open Source', 'Engineering']
   },
   {
     number: '03',
@@ -50,20 +49,6 @@ const projects = [
   },
   {
     number: '02',
-    category: 'DESKTOP ENVIRONMENT',
-    name: 'dotfiles',
-    image: '/images/projects/dotfiles-desktop.png',
-    imageAlt: 'Custom Linux desktop environment built with Hyprland and Quickshell',
-    imageFit: 'cover',
-    description:
-      'A complete, personally tailored Linux desktop environment designed around productivity, consistency and a cohesive user experience. The configuration brings together Hyprland, Quickshell and a collection of interconnected desktop applications.',
-    details:
-      'Quickshell provides the custom graphical layer, while dedicated configurations for applications such as Alacritty, CAVA and Matugen help create a unified environment. The repository keeps the desktop setup reproducible and easy to maintain through version-controlled configuration files.',
-    tags: ['Hyprland', 'Quickshell', 'QML', 'Linux', 'Dotfiles'],
-    url: 'https://github.com/QuantumKoga/dotfiles'
-  },
-  {
-    number: '03',
     category: 'INFRASTRUCTURE & SECURITY',
     name: 'HADES',
     image: '/images/projects/hades-network.png',
@@ -75,6 +60,20 @@ const projects = [
       'The infrastructure uses a dedicated pfSense firewall for routing, VLANs and WireGuard VPN access, with Proxmox workloads treated as independently controlled network entities. The documentation also covers monitoring, logging, threat detection and planned infrastructure components, while deliberately excluding operational secrets.',
     tags: ['pfSense', 'Proxmox', 'WireGuard', 'VLAN', 'Homelab'],
     url: 'https://github.com/QuantumKoga/hades'
+  },
+  {
+    number: '03',
+    category: 'DESKTOP ENVIRONMENT',
+    name: 'dotfiles',
+    image: '/images/projects/dotfiles-desktop.png',
+    imageAlt: 'Custom Linux desktop environment built with Hyprland and Quickshell',
+    imageFit: 'cover',
+    description:
+      'A complete, personally tailored Linux desktop environment designed around productivity, consistency and a cohesive user experience. The configuration brings together Hyprland, Quickshell and a collection of interconnected desktop applications.',
+    details:
+      'Quickshell provides the custom graphical layer, while dedicated configurations for applications such as Alacritty, CAVA and Matugen help create a unified environment. The repository keeps the desktop setup reproducible and easy to maintain through version-controlled configuration files.',
+    tags: ['Hyprland', 'Quickshell', 'QML', 'Linux', 'Dotfiles'],
+    url: 'https://github.com/QuantumKoga/dotfiles'
   },
   {
     number: '04',
@@ -92,6 +91,44 @@ const projects = [
   }
 ];
 
+
+
+const technologies = [
+  {
+    category: 'Security',
+    items: ['Zabbix', 'Wazuh', 'Authentication', 'Pentesting', 'Network Segmentation']
+  },
+  {
+    category: 'Operating Systems',
+    items: ['Linux', 'NixOS', 'Nix Flakes', 'Windows Active Directory']
+  },
+  {
+    category: 'Software Development',
+    items: ['Git', 'C++', 'Python', 'JSON', 'FastAPI', 'Rust']
+  },
+  {
+    category: 'Infrastructure & Networking',
+    items: ['pfSense', 'Proxmox', 'WireGuard', 'OpenWrt']
+  },
+  {
+    category: 'Desktop Engineering',
+    items: ['Hyprland', 'Quickshell', 'QML', 'bash']
+  },
+  {
+    category: 'AI & Tooling',
+    items: ['Ollama', 'llama.cpp', 'Open WebUI', 'Custom Tooling']
+  }
+];
+
+const trainingSemesters = [
+  { semester: '2023 · Semester 2', hours: 40, url: '/documents/education/sekurak-academy/2023-s2-en.pdf' },
+  { semester: '2024 · Semester 1', hours: 47, url: '/documents/education/sekurak-academy/2024-s1-en.pdf' },
+  { semester: '2024 · Semester 2', hours: 43, url: '/documents/education/sekurak-academy/2024-s2-en.pdf' },
+  { semester: '2025 · Semester 1', hours: 39, url: '/documents/education/sekurak-academy/2025-s1-en.pdf' },
+  { semester: '2025 · Semester 2', hours: 50, url: '/documents/education/sekurak-academy/2025-s2-en.pdf' },
+  { semester: '2026 · Semester 1', hours: 28, url: '/documents/education/sekurak-academy/2026-s1-en.pdf' }
+];
+
 ---
 
 <BaseLayout>
@@ -100,19 +137,21 @@ const projects = [
     <div class="max-w-3xl">
       <div class="mb-8 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-emerald-300">
         <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
-        Software Development / Cybersecurity
+        Cybersecurity / Software Development
       </div>
 
       <h1 class="text-5xl font-semibold leading-[1.08] tracking-tight sm:text-7xl">
-        Building secure things.
+        Engineering software.
         <span class="block text-[#829189]">
-          Understanding how they work.
+          Securing systems.
+        </span>
+        <span class="block text-[#529189]">
+          Building infrastructure.
         </span>
       </h1>
 
       <p class="mt-8 max-w-2xl text-lg leading-8 text-[#a4b0a8]">
-        I'm Norbert Janik — a developer interested in software engineering,
-        cybersecurity, open source and infrastructure.
+        I'm Norbert Janik — a software developer focused on secure systems, Linux infrastructure, automation and open-source engineering.
         This is where I document what I build, learn and explore.
       </p>
 
@@ -132,6 +171,34 @@ const projects = [
         >
           GitHub profile ↗
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Professional experience -->
+  <section id="experience" class="border-y border-white/10 bg-white/[0.02]">
+    <div class="mx-auto max-w-6xl px-6 py-24">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+        Professional experience
+      </p>
+
+      <div class="mt-8 max-w-3xl rounded-xl border border-white/10 bg-[#101613] p-7 sm:p-9">
+        <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight">Software Developer</h2>
+            <p class="mt-2 text-lg text-emerald-300">Nokia</p>
+            <p class="mt-1 text-sm text-[#849189]">C++ · 5G Base Station Software · Radio Access Networks</p>
+          </div>
+          <span class="w-fit rounded-md border border-emerald-400/20 bg-emerald-400/[0.06] px-3 py-1.5 text-sm text-emerald-200">
+            6 years of experience
+          </span>
+        </div>
+
+        <p class="mt-7 leading-8 text-[#a4b0a8]">
+          Developing C++ software for 5G base station systems at Nokia.
+          Professional experience in telecommunications software, working
+          in the domain of 5G Radio Access Networks and production-grade systems.
+        </p>
       </div>
     </div>
   </section>
@@ -173,6 +240,35 @@ const projects = [
   </section>
 
   
+  <!-- Technology stack -->
+  <section id="technologies" class="mx-auto max-w-6xl px-6 py-24">
+    <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+      Tools of the trade
+    </p>
+    <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+      Technologies & tools
+    </h2>
+    <p class="mt-4 max-w-2xl leading-7 text-[#a4b0a8]">
+      A selection of technologies I have used across professional software
+      development, personal projects and self-hosted infrastructure.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {technologies.map((group) => (
+        <article class="rounded-xl border border-white/10 bg-[#101613] p-6">
+          <h3 class="text-lg font-semibold">{group.category}</h3>
+          <div class="mt-5 flex flex-wrap gap-2">
+            {group.items.map((item) => (
+              <span class="rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-[#b8c4bc]">
+                {item}
+              </span>
+            ))}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
   <!-- Projects -->
   <section id="projects" class="mx-auto max-w-6xl px-6 py-24">
     <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
@@ -266,8 +362,112 @@ const projects = [
     </div>
   </section>
 
+  <!-- Education & training -->
+  <section id="certifications" class="border-y border-white/10 bg-white/[0.02]">
+    <div class="mx-auto max-w-6xl px-6 py-24">
+      <p class="text-sm font-medium uppercase tracking-[0.2em] text-emerald-300">
+        Continuous professional development
+      </p>
+      <h2 class="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+        Cybersecurity Education
+      </h2>
+      <p class="mt-4 max-w-3xl leading-7 text-[#a4b0a8]">
+        For three years, I have been systematically expanding my cybersecurity
+        knowledge through Sekurak.Academy training. The programme spans a broad
+        range of security disciplines, complementing my professional background
+        in software engineering and my hands-on work with Linux systems and
+        infrastructure. The diplomas below document my participation across
+        six consecutive semesters.
+      </p>
 
-  <!-- About -->
+      <div class="mt-10 grid gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border border-white/10 bg-[#101613] p-6">
+          <p class="text-3xl font-semibold tabular-nums text-emerald-300">247</p>
+          <p class="mt-2 text-sm text-[#a4b0a8]">Hours of training</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#101613] p-6">
+          <p class="text-3xl font-semibold tabular-nums text-emerald-300">6</p>
+          <p class="mt-2 text-sm text-[#a4b0a8]">Semester diplomas</p>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-[#101613] p-6">
+          <p class="text-3xl font-semibold tabular-nums text-emerald-300">2023–2026</p>
+          <p class="mt-2 text-sm text-[#a4b0a8]">Continuous learning</p>
+        </div>
+      </div>
+
+      <div class="mt-12">
+        <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
+          <div>
+            <h3 class="text-xl font-semibold">Semester diplomas</h3>
+            <p class="mt-2 text-sm text-[#849189]">
+              Official English-language records issued by Sekurak.Academy.
+            </p>
+          </div>
+          <a
+            href="https://lp.sekurak.academy/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm font-medium text-emerald-300 transition hover:text-emerald-200"
+          >
+            Sekurak.Academy ↗
+          </a>
+        </div>
+
+        <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {trainingSemesters.map((item) => (
+            <article class="flex flex-col rounded-xl border border-white/10 bg-[#101613] p-6 transition hover:border-emerald-400/30">
+              <div class="flex items-start justify-between gap-3">
+                <h4 class="font-semibold">{item.semester}</h4>
+                <span class="shrink-0 rounded-md bg-emerald-400/[0.08] px-2.5 py-1 text-xs font-medium text-emerald-200">
+                  {item.hours} hours
+                </span>
+              </div>
+              <p class="mt-3 text-sm leading-6 text-[#849189]">
+                Consolidated record of cybersecurity training completed during this semester.
+              </p>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-300 transition hover:text-emerald-200"
+              >
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                  <path d="M5 2.75h6l4 4v10.5H5z" stroke-linejoin="round" />
+                  <path d="M11 2.75v4h4M7.5 11h5M7.5 14h5" stroke-linecap="round" />
+                </svg>
+                View diploma (PDF)
+              </a>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-12 border-t border-white/10 pt-8">
+        <p class="text-xs font-medium uppercase tracking-[0.18em] text-[#849189]">
+          Areas covered by the training programme
+        </p>
+        <div class="mt-4 flex flex-wrap gap-2">
+          {[
+            'Application Security',
+            'Network & Infrastructure Security',
+            'Penetration Testing',
+            'Digital Forensics',
+            'Malware Analysis',
+            'OSINT & Threat Intelligence',
+            'Security Operations',
+            'Cloud & Enterprise Security',
+            'Cryptography & Hardware Security'
+          ].map((topic) => (
+            <span class="rounded-md border border-white/[0.08] bg-white/[0.04] px-3 py-1.5 text-xs text-[#b8c4bc]">
+              {topic}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- About -->
   <section id="about" class="border-y border-white/10 bg-white/[0.02]">
     <div class="mx-auto max-w-6xl px-6 py-24">
       <div class="max-w-3xl">
@@ -280,14 +480,51 @@ const projects = [
         </h2>
 
         <p class="mt-6 leading-8 text-[#a4b0a8]">
-          I enjoy understanding how technology works — from the software
-          we build to the infrastructure it runs on and the security
-          properties that protect it.
+          I have always been driven by the same question: <span class="text-white">how does this actually work?</span>
+          That curiosity has taken me through several areas of engineering, from
+          computational physics and low-level software to Linux systems,
+          infrastructure and, increasingly, cybersecurity. I am motivated less
+          by collecting titles or credentials and more by the process of
+          understanding difficult problems, building things, taking them apart
+          and learning what makes them reliable.
         </p>
 
         <p class="mt-4 leading-8 text-[#a4b0a8]">
-          This portfolio is a living record of my projects, experiments,
-          technical notes and ongoing learning.
+          My academic background includes doctoral research in quantum physics,
+          culminating in a written dissertation. Alongside developing code for
+          scientific computations, I also managed the computing servers used
+          by my research group. It was an early opportunity to work across the
+          boundary between software and the systems that make demanding
+          workloads possible.
+        </p>
+
+        <p class="mt-4 leading-8 text-[#a4b0a8]">
+          Today, I bring that systems-oriented mindset to my work at Nokia,
+          where I develop C++ software for complex real-time 5G base station
+          components, including the Packet Scheduler. My work also involves
+          investigating difficult software defects, including complex issues
+          reported by customers. I enjoy the challenge of tracing behaviour
+          through intricate systems, understanding the underlying cause and
+          turning that understanding into a robust fix.
+        </p>
+
+        <p class="mt-4 leading-8 text-[#a4b0a8]">
+          Cybersecurity is the direction I am deliberately moving toward.
+          What excites me most is understanding how systems can fail, where
+          their trust boundaries lie and how they can be made more resilient.
+          My experience in software development, Linux and infrastructure gives
+          me a foundation to build on, while personal projects and continuous
+          hands-on learning help me explore security from both the defensive
+          and investigative sides.
+        </p>
+
+        <p class="mt-4 leading-8 text-[#a4b0a8]">
+          I follow curiosity wherever it leads: sometimes that means exploring
+          a new technology, sometimes debugging a problem that refuses to be
+          obvious, and sometimes building an entire environment just to
+          understand it better. This portfolio documents that journey — the
+          systems I build, the problems I investigate and the skills I develop
+          along the way.
         </p>
       </div>
     </div>
@@ -305,18 +542,42 @@ const projects = [
       </h2>
 
       <p class="mt-4 max-w-xl leading-7 text-[#a4b0a8]">
-        Interested in my work or have an interesting project in mind?
-        Feel free to reach out through GitHub.
+        Interested in my work, professional experience or have an interesting
+        project in mind? Feel free to reach out.
       </p>
 
-      <a
-        href="https://github.com/QuantumKoga"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-8 inline-flex rounded-lg bg-emerald-400 px-6 py-3 text-sm font-semibold text-[#08100c] transition hover:bg-emerald-300"
-      >
-        Find me on GitHub ↗
-      </a>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a
+          href="mailto:quantumkoga.stopped481@passinbox.com"
+          class="inline-flex rounded-lg bg-emerald-400 px-5 py-3 text-sm font-semibold text-[#08100c] transition hover:bg-emerald-300"
+        >
+          Email me
+        </a>
+        <a
+          href="https://www.linkedin.com/in/norbert-janik-4698a321b/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-emerald-400/50 hover:text-emerald-300"
+        >
+          LinkedIn ↗
+        </a>
+        <a
+          href="https://github.com/QuantumKoga"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-emerald-400/50 hover:text-emerald-300"
+        >
+          GitHub ↗
+        </a>
+        <a
+          href="/documents/Norbert_Janik_CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex rounded-lg border border-white/15 px-5 py-3 text-sm font-medium text-white transition hover:border-emerald-400/50 hover:text-emerald-300"
+        >
+          Download CV (coming soon) ↗
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>

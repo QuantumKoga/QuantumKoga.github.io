@@ -121,12 +121,12 @@ const technologies = [
 ];
 
 const trainingSemesters = [
-  { semester: '2023 · Semester 2', hours: 40, url: '/documents/education/sekurak-academy/2023-s2-en.pdf' },
-  { semester: '2024 · Semester 1', hours: 47, url: '/documents/education/sekurak-academy/2024-s1-en.pdf' },
-  { semester: '2024 · Semester 2', hours: 43, url: '/documents/education/sekurak-academy/2024-s2-en.pdf' },
-  { semester: '2025 · Semester 1', hours: 39, url: '/documents/education/sekurak-academy/2025-s1-en.pdf' },
+  { semester: '2026 · Semester 1', hours: 28, url: '/documents/education/sekurak-academy/2026-s1-en.pdf' },
   { semester: '2025 · Semester 2', hours: 50, url: '/documents/education/sekurak-academy/2025-s2-en.pdf' },
-  { semester: '2026 · Semester 1', hours: 28, url: '/documents/education/sekurak-academy/2026-s1-en.pdf' }
+  { semester: '2025 · Semester 1', hours: 39, url: '/documents/education/sekurak-academy/2025-s1-en.pdf' },
+  { semester: '2024 · Semester 2', hours: 43, url: '/documents/education/sekurak-academy/2024-s2-en.pdf' },
+  { semester: '2024 · Semester 1', hours: 47, url: '/documents/education/sekurak-academy/2024-s1-en.pdf' },
+  { semester: '2023 · Semester 2', hours: 40, url: '/documents/education/sekurak-academy/2023-s2-en.pdf' }
 ];
 
 ---
@@ -182,23 +182,61 @@ const trainingSemesters = [
         Professional experience
       </p>
 
-      <div class="mt-8 max-w-3xl rounded-xl border border-white/10 bg-[#101613] p-7 sm:p-9">
-        <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight">Software Developer</h2>
-            <p class="mt-2 text-lg text-emerald-300">Nokia</p>
-            <p class="mt-1 text-sm text-[#849189]">C++ · 5G Base Station Software · Radio Access Networks</p>
+      <div class="mt-8 grid max-w-3xl gap-5">
+        <article class="rounded-xl border border-white/10 bg-[#101613] p-7 sm:p-9">
+          <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+            <div>
+              <h2 class="text-2xl font-semibold tracking-tight">Software Developer</h2>
+              <p class="mt-2 text-lg text-emerald-300">Nokia</p>
+              <p class="mt-1 text-sm text-[#849189]">C++ · 5G Base Station Software · Radio Access Networks</p>
+            </div>
+            <span class="w-fit rounded-md border border-emerald-400/20 bg-emerald-400/[0.06] px-3 py-1.5 text-sm text-emerald-200">
+              6 years of experience
+            </span>
           </div>
-          <span class="w-fit rounded-md border border-emerald-400/20 bg-emerald-400/[0.06] px-3 py-1.5 text-sm text-emerald-200">
-            6 years of experience
-          </span>
-        </div>
 
-        <p class="mt-7 leading-8 text-[#a4b0a8]">
-          Developing C++ software for 5G base station systems at Nokia.
-          Professional experience in telecommunications software, working
-          in the domain of 5G Radio Access Networks and production-grade systems.
-        </p>
+          <p class="mt-7 leading-8 text-[#a4b0a8]">
+            Developing C++ software for 5G base station systems at Nokia.
+            Professional experience in telecommunications software, working
+            in the domain of 5G Radio Access Networks and production-grade systems.
+          </p>
+        </article>
+
+        <article class="rounded-xl border border-white/10 bg-[#101613] p-7 sm:p-9">
+          <div class="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+            <div>
+              <h2 class="text-2xl font-semibold tracking-tight">Doctoral Researcher</h2>
+              <p class="mt-2 text-lg text-emerald-300">Wrocław University of Science and Technology</p>
+              <p class="mt-1 text-sm text-[#849189]">Quantum Physics · Scientific Computing · Research &amp; Teaching</p>
+            </div>
+            <span class="w-fit rounded-md border border-white/10 bg-white/[0.04] px-3 py-1.5 text-sm text-[#b8c4bc]">
+              4 years
+            </span>
+          </div>
+
+          <p class="mt-7 leading-8 text-[#a4b0a8]">
+            Conducted doctoral research in quantum physics, combining scientific
+            problem-solving with computational methods and software development.
+            Developed code for scientific computations and administered the
+            computing servers used by the research group.
+          </p>
+
+          <p class="mt-4 leading-8 text-[#a4b0a8]">
+            Alongside my research, I taught courses and classes in programming,
+            numerical methods in physics, big data analytics, fundamentals of
+            neural networks and advanced topics in algebra.
+          </p>
+
+          <a
+            href="/documents/NJ_thesis.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-emerald-300 transition hover:text-emerald-200"
+          >
+            Read doctoral dissertation (PDF)
+            <span aria-hidden="true">↗</span>
+          </a>
+        </article>
       </div>
     </div>
   </section>
@@ -311,18 +349,27 @@ const trainingSemesters = [
             </span>
           </div>
 
-          <img
-            src={project.image}
-            alt={project.imageAlt}
-            loading="lazy"
-            decoding="async"
-            class:list={[
-              'mt-7 aspect-video w-full rounded-lg border border-white/10',
-              project.imageFit === 'cover'
-                ? 'object-cover'
-                : 'bg-[#0b0f0e] object-contain p-2'
-            ]}
-          />
+          <button
+            type="button"
+            class="project-image-trigger group/image mt-7 block w-full cursor-zoom-in overflow-hidden rounded-lg border border-white/10 text-left focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-400"
+            data-lightbox-src={project.image}
+            data-lightbox-alt={project.imageAlt}
+            aria-label={`Enlarge image: ${project.name}`}
+          >
+            <img
+              src={project.image}
+              alt={project.imageAlt}
+              loading="lazy"
+              decoding="async"
+              class:list={[
+                'aspect-video w-full transition duration-300 group-hover/image:scale-[1.02]',
+                project.imageFit === 'cover'
+                  ? 'object-cover'
+                  : 'bg-[#0b0f0e] object-contain p-2'
+              ]}
+            />
+            <span class="sr-only">Click to enlarge image</span>
+          </button>
 
           <h3 class="mt-7 text-2xl font-semibold tracking-tight text-white">
             {project.name}
@@ -360,6 +407,30 @@ const trainingSemesters = [
         </article>
       ))}
     </div>
+
+    <!-- Project image lightbox -->
+    <dialog
+      id="project-image-lightbox"
+      class="m-auto max-h-[92vh] max-w-[min(94vw,1200px)] overflow-visible border-0 bg-transparent p-0 text-white backdrop:bg-black/90 backdrop:backdrop-blur-sm"
+      aria-label="Enlarged project image"
+    >
+      <div class="relative">
+        <button
+          type="button"
+          id="project-image-lightbox-close"
+          class="absolute -right-3 -top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-[#101613] text-2xl text-white shadow-lg transition hover:border-emerald-400/50 hover:text-emerald-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-400"
+          aria-label="Close enlarged image"
+        >
+          &times;
+        </button>
+        <img
+          id="project-image-lightbox-image"
+          src=""
+          alt=""
+          class="block max-h-[88vh] max-w-[94vw] rounded-lg border border-white/15 bg-[#0b0f0e] object-contain shadow-2xl"
+        />
+      </div>
+    </dialog>
   </section>
 
   <!-- Education & training -->
@@ -581,3 +652,26 @@ const trainingSemesters = [
     </div>
   </section>
 </BaseLayout>
+
+
+<script>
+  const lightbox = document.querySelector<HTMLDialogElement>('#project-image-lightbox');
+  const lightboxImage = document.querySelector<HTMLImageElement>('#project-image-lightbox-image');
+  const closeLightboxButton = document.querySelector<HTMLButtonElement>('#project-image-lightbox-close');
+
+  document.querySelectorAll<HTMLButtonElement>('.project-image-trigger').forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      if (!lightbox || !lightboxImage) return;
+
+      lightboxImage.src = trigger.dataset.lightboxSrc ?? '';
+      lightboxImage.alt = trigger.dataset.lightboxAlt ?? '';
+      lightbox.showModal();
+    });
+  });
+
+  closeLightboxButton?.addEventListener('click', () => lightbox?.close());
+
+  lightbox?.addEventListener('click', (event) => {
+    if (event.target === lightbox) lightbox.close();
+  });
+</script>
